@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khana & Chai Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>🍽️ Khana & ☕ Chai Tracker</h1>
+      <p class="sub">Whose turn is it? Never mix up again.</p>
+    </header>
+
+    <section class="card next">
+      <h2>Next Turn</h2>
+      <div class="next-grid">
+        <div class="next-box">
+          <span class="label">Khana (کھانا)</span>
+          <strong id="nextKhana">—</strong>
+        </div>
+        <div class="next-box">
+          <span class="label">Chai (ٹی)</span>
+          <strong id="nextChai">—</strong>
+        </div>
+      </div>
+      <p class="hint">Suggested = person who fed the fewest times (ties: whoever fed longest ago).</p>
+    </section>
+
+    <section class="card">
+      <h2>Add Entry</h2>
+      <form id="entryForm">
+        <div class="row">
+          <label>What
+            <select id="type" required>
+              <option value="khana">Khana (کھانا)</option>
+              <option value="chai">Chai (ٹی)</option>
+            </select>
+          </label>
+          <label>Who fed
+            <select id="person" required></select>
+          </label>
+        </div>
+        <div class="row">
+          <label>Date
+            <input type="date" id="date" required />
+          </label>
+          <label>Note (optional)
+            <input type="text" id="note" placeholder="e.g. Biryani, Rs 2000" maxlength="80" />
+          </label>
+        </div>
+        <button type="submit">Save Entry</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Scoreboard</h2>
+      <div class="table-wrap">
+        <table id="scoreTable">
+          <thead>
+            <tr><th>Friend</th><th>Khana</th><th>Chai</th><th>Total</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="history-head">
+        <h2>History</h2>
+        <select id="filter">
+          <option value="all">All</option>
+          <option value="khana">Khana only</option>
+          <option value="chai">Chai only</option>
+        </select>
+      </div>
+      <ul id="history"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Backup</h2>
+      <p class="hint">Data is saved in this browser. Use export/import to share or back up.</p>
+      <div class="row">
+        <button id="exportBtn" class="secondary">Export</button>
+        <button id="importBtn" class="secondary">Import</button>
+        <button id="clearBtn" class="danger">Clear all</button>
+      </div>
+      <input type="file" id="importFile" accept="application/json" hidden />
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
